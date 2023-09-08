@@ -35,7 +35,7 @@ export class LoginComponent {
           icon: 'error',
           title: 'Credenciales Incorrectas!',
           text: 'Favor verificar!',
-          footer: 'Oficina de Sistemas e Informatica.'
+          footer: 'Click Por Mi Planeta.'
         });
       })
   }
