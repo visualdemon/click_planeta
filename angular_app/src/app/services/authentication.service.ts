@@ -45,24 +45,15 @@ export class AuthenticationService {
       password: password,
     });
   }
-  getGener14(user: any): Observable<any> {
-    return this.http.post('http://localhost:8000/api/getGener14', {});
-  }
 
-
-  getOferta(user: any): Observable<any> {
-    return this.http.post('http://localhost:8000/api/getOferta', {});
-  }
-
-  // User Info
   user() {
     const user: any = localStorage.getItem('user');
     const userObj = JSON.parse(user);
-
     const token = userObj.token;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
+
     return this.http.get('http://localhost:8000/api/user', {
       headers: headers,
     });
@@ -72,7 +63,6 @@ export class AuthenticationService {
   logout(allDevice: boolean) {
     const user: any = localStorage.getItem('user');
     const userObj = JSON.parse(user);
-
     const token = userObj.token;
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
@@ -86,8 +76,6 @@ export class AuthenticationService {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    console.log("ahahaha");
-    console.log(params);
     return this.http.post('http://localhost:8000/api/register', params, { headers: headers });
   }
 
