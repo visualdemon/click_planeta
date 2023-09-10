@@ -18,14 +18,15 @@ class AuthenticationController extends Controller
 
         $login = $request->only('email', 'password');
 
-        if (!Auth::attempt($login)) {
+        if (!Auth('web')->attempt($login)) {
             return response(['message' => 'Creedenciales incorrectas!!', 'status' => 'error'], 401);
         }
         /**
          * @var User $user
          */
-        $user = Auth::user();
-        $token = $user->createToken($user->prinom . ' ' . $user->segnom . ' ' . $user->priape . ' ' . $user->segape, ['*'], Carbon::now()->addYear());
+        $user = Auth('web')->user();
+        $token = $user->createToken($user->prinom . ' ' . $user->segnom . ' ' . $user->priape . ' ' . $user->segape,['*'],Carbon::now()->addDay());
+
 
         return response([
             'id' => $user->id,
@@ -34,13 +35,14 @@ class AuthenticationController extends Controller
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
             'token' => $token->accessToken,
-            'token_expires_at' => $token->accessToken->expires_at,
+            'token_expires_at' => $token->token->expires_at,
             'message' => '¡Bienvenido ' . $user->name . '!'
         ], 200);
     }
 
     public function logout(Request $request)
     {
+
         $this->validate($request, [
             'allDevice' => 'required'
         ]);

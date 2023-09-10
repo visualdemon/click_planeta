@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return Auth::user();
+Route::get('/user', function (Request $request) {    
+    return Auth('web')->user();
 });
 
 Route::get('users', function () {
@@ -16,7 +16,7 @@ Route::get('users', function () {
 
 Route::group(['namespace' => 'Api\Auth'], function () {
     Route::post('/login', 'AuthenticationController@login');
-    Route::post('/logout', 'AuthenticationController@logout')/* ->middleware('auth:api') */;
+    Route::post('/logout', 'AuthenticationController@logout')->middleware('auth:api');
     Route::post('/register', 'RegisterController@register');
     Route::post('/forgot', 'ForgotPasswordController@forgot');
     Route::post('/reset', 'ForgotPasswordController@reset');

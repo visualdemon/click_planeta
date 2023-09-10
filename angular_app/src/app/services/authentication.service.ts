@@ -65,9 +65,11 @@ export class AuthenticationService {
   logout(allDevice: boolean) {
     const user: any = localStorage.getItem('user');
     const userObj = JSON.parse(user);
-    const token = userObj.token;
+    const token = userObj['token'];
+    console.log("ayuda");
+    console.log(token['token']);
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${token}`
     });
     return this.http.post('http://localhost:8000/api/logout', { allDevice: allDevice }, { headers: headers });
   }

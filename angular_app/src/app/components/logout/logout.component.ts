@@ -18,6 +18,7 @@ export class LogoutComponent implements OnInit {
   logout(){
     // console.log(this.checkbox);
     this.auth.logout(this.checkbox).subscribe((res)=>{
+      console.log("resouihaihda");
       console.log(res);
       localStorage.removeItem('user');
 
@@ -25,6 +26,7 @@ export class LogoutComponent implements OnInit {
       // Redirect
       this.router.navigate(['/']);
     }, (err) =>{
+      console.log("IAGDIA")
       console.log(err)
     })
   }
