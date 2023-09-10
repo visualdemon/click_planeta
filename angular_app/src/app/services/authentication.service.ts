@@ -32,6 +32,8 @@ export class AuthenticationService {
         this.isLoggedIn.next(true);
       } else {
         this.isLoggedIn.next(false);
+        console.log(token_expires_at);
+        console.log(current_date)
         console.log('Token Expires!!');
       }
     }

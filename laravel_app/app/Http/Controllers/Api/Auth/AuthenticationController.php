@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class AuthenticationController extends Controller
@@ -24,7 +25,7 @@ class AuthenticationController extends Controller
          * @var User $user
          */
         $user = Auth::user();
-        $token = $user->createToken($user->prinom . ' ' . $user->segnom . ' ' . $user->priape . ' ' . $user->segape);
+        $token = $user->createToken($user->prinom . ' ' . $user->segnom . ' ' . $user->priape . ' ' . $user->segape, ['*'], Carbon::now()->addYear());
 
         return response([
             'id' => $user->id,
@@ -33,7 +34,7 @@ class AuthenticationController extends Controller
             'created_at' => $user->created_at,
             'updated_at' => $user->updated_at,
             'token' => $token->accessToken,
-            'token_expires_at' => $token->token->expires_at,
+            'token_expires_at' => $token->accessToken->expires_at,
             'message' => '¡Bienvenido ' . $user->name . '!'
         ], 200);
     }
@@ -45,7 +46,7 @@ class AuthenticationController extends Controller
         ]);
 
         /**
-         * @var user $user
+         * @var User $user
          */
         $user = Auth::user();
         if ($request->allDevice) {

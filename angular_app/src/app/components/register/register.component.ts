@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     password: null,
   }
   constructor(private auth: AuthenticationService, private router: Router) {
-    this.register = new Register('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+    this.register = new Register('', '', '', '', '', '', '', '', '', '', '', '', '', '');
     
   }
 

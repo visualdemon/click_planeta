@@ -90,21 +90,6 @@
               </small>
             </div>
             <div class="input-group mb-3 col-sm-3 pb-3 form-group  ">
-              <select class="form-control" aria-label="Default select example" name="painac" #painac="ngModel"
-                [(ngModel)]="register.painac" required>
-                <option value="" selected>Nacionalidad*</option>
-                <option *ngFor="let dt of paises" value={{dt.codpai}}>{{dt.detpai}}</option>
-              </select>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-globe"></span>
-                </div>
-              </div>
-              <small *ngIf="!painac.valid && painac.touched" class="invalid-feedback d-block">
-                El campo no es valido!
-              </small>
-            </div>
-            <div class="input-group mb-3 col-sm-3 pb-3 form-group  ">
               <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control"
                 placeholder="Fecha de Nacimiento*" name="fecnac" #fecnac="ngModel" [(ngModel)]="register.fecnac"
                 required>
@@ -149,21 +134,7 @@
               </small>
             </div>
 
-            <div class="input-group mb-3 col-sm-3 pb-3 form-group  ">
-              <select class="form-control" aria-label="Default select example" name="pais" #pais="ngModel"
-                [(ngModel)]="register.pais" required>
-                <option value="" selected>Pais de Residencia*</option>
-                <option *ngFor="let dt of paises" value={{dt.codpai}}>{{dt.detpai}}</option>
-              </select>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-globe"></span>
-                </div>
-              </div>
-              <small *ngIf="!pais.valid && pais.touched" class="invalid-feedback d-block">
-                El campo no es valido!
-              </small>
-            </div>
+
 
 
             <div class="input-group mb-3 col-sm-3 pb-3 form-group  ">
@@ -191,34 +162,6 @@
               </small>
             </div>
             <div class="input-group mb-3 col-sm-3 pb-3 form-group  ">
-              <input type="text" class="form-control" placeholder="Oficio/Ocupacion*" name="ocupacion"
-                #ocupacion="ngModel" [(ngModel)]="register.ocupacion" maxlength="50" required>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-suitcase"></span>
-                </div>
-              </div>
-              <small *ngIf="!ocupacion.valid && ocupacion.touched" class="invalid-feedback d-block">
-                El campo no es valido!
-              </small>
-            </div>
-
-            <div class="input-group mb-3 col-sm-3 pb-3 form-group  ">
-              <input type="text" class="form-control" placeholder="Empresa*" name="empresa" #empresa="ngModel"
-                [(ngModel)]="register.empresa" maxlength="100" required>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-suitcase"></span>
-                </div>
-              </div>
-              <small *ngIf="!empresa.valid && empresa.touched" class="invalid-feedback d-block">
-                El campo no es valido!
-              </small>
-            </div>
-
-
-            <!--             <p class="text-danger pl-1" *ngIf="errors.name">{{errors.name}}</p> -->
-            <div class="input-group mb-3 col-sm-3 pb-3 form-group  ">
               <input type="email" class="form-control" placeholder="Email*" name="email" #email="ngModel"
                 [(ngModel)]="register.email" maxlength="100" required>
               <div class="input-group-append">
@@ -230,7 +173,6 @@
                 El campo no es valido!
               </small>
             </div>
-            <!--             <p class="text-danger pl-1" *ngIf="errors.email">{{errors.email}}</p> -->
             <div class="input-group mb-3 col-sm-3 pb-3 form-group ">
               <input type="password" class="form-control" placeholder="Contraseña*" name="password" #password="ngModel"
                 [(ngModel)]="register.password" required>
@@ -243,7 +185,6 @@
                 El campo no es valido!
               </small>
             </div>
-            <!--             <p class="text-danger pl-1" *ngIf="errors.password">{{errors.password}}</p> -->
             <div class="input-group mb-3 col-sm-3 pb-3 form-group ">
               <input type="password" class="form-control" placeholder="Confirmar Contraseña*"
                 name="password_confirmation" #password_confirmation="ngModel"
@@ -261,31 +202,13 @@
 
           </div>
           <div class="row">
-            <!-- /.col -->
-            <div class="col-5" style="align-items: center; display: flex; justify-content: center;" >
+            <div class="col-5" style="align-items: center; display: flex; justify-content: center;">
               <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
             </div>
-            <!-- /.col -->
           </div>
         </form>
-
-        <!--         <div class="social-auth-links text-center">
-          <p>- OR -</p>
-          <a href="#" class="btn btn-block btn-primary">
-            <i class="fab fa-facebook mr-2"></i>
-            Sign up using Facebook
-          </a>
-          <a href="#" class="btn btn-block btn-danger">
-            <i class="fab fa-google-plus mr-2"></i>
-            Sign up using Google+
-          </a>
-        </div> -->
-
         <a routerLink="/login" class="text-center">Ya tengo una cuenta</a>
       </div>
-      <!-- /.form-box -->
-    </div><!-- /.card -->
+    </div>
   </div>
-  <!-- /.register-box -->
-
 </div>

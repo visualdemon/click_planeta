@@ -23,12 +23,13 @@ export class LoginComponent {
     const password = form.value.password;
     console.log(email, password);
     this.auth.login(email, password).subscribe((res: any) => {
-
       Swal.fire({
         icon: 'success',
         title: '¡Bienvenido!',
         text: 'Un Click Por Mi Planeta.'
       });
+      localStorage.setItem('user', JSON.stringify(res))
+      this.router.navigate(['/dashboard']);
     },
       err => {
         Swal.fire({

@@ -22,16 +22,12 @@ class RegisterController extends Controller
             'docemp' => 'required',
             'prinom' => 'required',
             'priape' => 'required',
-            'painac' => 'required',
             'fecnac' => 'required',
             'codsex' => 'required',
-            'pais' => 'required',
             'ciudad' => 'required',
             'direccion' => 'required',
             'email' => 'required|unique:users',
-            'ocupacion' => 'required',
-            'empresa' => 'required',
-            'password' => 'required|confirmed',
+            'password' => 'required|confirmed'
         ]);
 
         if ($validate->fails()) {
@@ -64,15 +60,13 @@ class RegisterController extends Controller
             $user->segnom = $params_array['segnom'];
             $user->priape = $params_array['priape'];
             $user->segape = $params_array['segape'];
-            $user->painac = $params_array['painac'];
+
             $user->fecnac = $params_array['fecnac'];
             $user->codsex = $params_array['codsex'];
-            $user->pais = $params_array['pais'];
+
             $user->ciudad = $params_array['ciudad'];
             $user->direccion = $params_array['direccion'];
             $user->email = $params_array['email'];
-            $user->ocupacion = $params_array['ocupacion'];
-            $user->empresa = $params_array['empresa'];
             $user->password = Hash::make($params_array['password']);
             $user->save();
 
