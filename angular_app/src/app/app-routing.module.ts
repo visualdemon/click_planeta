@@ -10,7 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
+import { AporteComponent } from './components/aporte/aporte.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'reset-password', component: ResetPasswordComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
+  {path: 'aporte', component: AporteComponent, canActivate:[AuthGuard]},
 ];
 
 @NgModule({

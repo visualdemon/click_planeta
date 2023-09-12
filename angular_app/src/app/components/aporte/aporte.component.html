@@ -1,0 +1,93 @@
+<div class="div1">
+    <div>
+        <div class="title">
+            <h3>Click Por Mi Planeta</h3>
+        </div>
+        <form (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
+            <div>
+                <div>
+                    <p>
+                        Es una iniciativa que busca reducir el consumo global de energía causada por el
+                        almacenamiento de correos, mediante una limpieza de las cuentas electrónicas en 2023.
+                    </p>
+                </div>
+                <br>
+                <ul>
+                    <li>
+                        Ingrese en sus cuentas de correo electrónico, servicio de nube o alojamiento de fotos
+                        (si tiene más de una puede generar varios reportes).
+                    </li>
+                    <li>
+                        Elimine los correos y archivos no deseados o que ya no use de sus diferentes servicios
+                        (Incluyendo bandeja de eliminados o papeleras de reciclaje).
+                    </li>
+                    <li>
+                        Complete el registro de su aporte en el siguiente formulario.
+                    </li>
+                    <li>
+                        Genere su certificado ecodigital.
+                    </li>
+                </ul>
+                <br>
+                <div>
+                    <label>Seleccione cliente de correo electrónico del cual va a eliminar información*</label>
+                    <div class="row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
+                                value="gmail" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Gmail
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                value="microsoft">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Microsoft
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                value="icloud">
+                            <label class="form-check-label" for="exampleRadios2">
+                                iCloud
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                value="amazon">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Amazon
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                value="xiaomi">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Xiaomi
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                value="huawei">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Huawei
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                                value="otros">
+                            <label class="form-check-label" for="exampleRadios2">
+                                Otros
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row col-5 contenedor">
+                <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+            </div>
+        </form>
+    </div>
+
+</div>
