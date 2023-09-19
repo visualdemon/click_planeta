@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/user', function (Request $request) {    
+Route::get('/user', function (Request $request) {
     return Auth('web')->user();
 });
 
@@ -23,4 +23,5 @@ Route::group(['namespace' => 'Api\Auth'], function () {
     Route::post('/getClick01', 'Click01Controller@getClick01');
     Route::post('/getClick02', 'Click02Controller@getClick02');
     Route::post('/register', 'Click03Controller@register');
+    Route::post('/getClick03', 'Click03Controller@getClick03');
 });

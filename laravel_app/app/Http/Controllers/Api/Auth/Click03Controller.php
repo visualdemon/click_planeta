@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
+use App\Models\Click01;
+use App\Models\Click02;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -55,5 +57,46 @@ class Click03Controller extends Controller
             }
         }
         return response($data, 200);
+    }
+
+    public function getClick03(Request $request)
+    {
+        $array = array();
+        $json = $request->input('json', null);
+        $params_array = json_decode($json, true);
+
+        $validate = Validator::make($params_array, [
+            'id_user' => 'required'
+        ]);
+
+        if ($validate->fails()) {
+            $data = [
+                'status' => 'error',
+                'code' => 404,
+                'message' => 'Error al traer datos!',
+                'errors' => $validate->errors()
+            ];
+        } else {
+            $click03 = Click03::where('id_user', $params_array['id_user'])->get();
+            if ($click03) {
+                foreach ($click03 as $key) {
+                    $click01 = Click01::where('id', $key->id_click01)->first();
+                    $click02 = Click02::where('id', $key->id_click02)->first();
+                    $array_ = array(
+                        'id' => $key->id,
+                        'id_user' => $key->id_user,
+                        'id_click01' => $key->id_click01,
+                        'detalle_click01' => $click01->detalle,
+                        'id_click02' => $key->id_click02,
+                        'detalle_click02' => $click02->detalle,
+                        'siglas_click02' => $click02->siglas,
+                        'c_click01' => $key->c_click01,
+                        'c_click02' => $key->c_click02,
+                    );
+                    array_push($array, $array_);
+                }
+            }
+        }
+        return response($array, 200);
     }
 }

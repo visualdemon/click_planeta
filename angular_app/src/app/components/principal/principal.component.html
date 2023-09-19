@@ -1,0 +1,93 @@
+<div>
+    <div class="title">
+        <h3>Bienvenido {{nombre}} a Un Click Por Mi Planeta</h3>
+    </div>
+</div>
+<br>
+<div class="row mt-12 div1">
+    <div class="col-sm-3 pb-3 prueba">
+        <div class="card card-secondary">
+            <div class="card-header">
+                <h3 class="card-title">Esta campaña va ahorrando lo equivalente a {{bombillas}} bombillas</h3>
+            </div>
+            <div class="card-body">
+                <div style="display: block;">
+                    <div class="chart-container">
+                        <canvas id="MyChart">{{ chart }}</canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 pb-3 prueba">
+        <div class="card card-secondary">
+            <div class="card-header">
+                <h3 class="card-title">Tus aportes totales a la campaña han sido {{aportes}} kb</h3>
+                <div class="card-tools">
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="MyChart2">{{ chart2 }}</canvas>
+                </div>
+            </div>
+            <div class="card-footer">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 pb-3 prueba">
+        <div class="card card-secondary">
+            <div class="card-header">
+                <h3 class="card-title">El último mes has aportado ha sido en diciembre con un total de {{gigabytes}} GB
+                </h3>
+                <div class="card-tools">
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="MyChart3">{{ chart3 }}</canvas>
+                </div>
+            </div>
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="row mt-12 div1">
+    <div class="col-sm-10 pb-3 prueba">
+        <div class="card">
+            <div class="title">
+                <h3>Registros</h3>
+            </div>
+            <div class="prueba">
+                <cdk-virtual-scroll-viewport style="height: 200px" itemSize=6>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Plataforma</th>
+                                <th scope="col">Archivos Borrados</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dt of registros">
+                                <th scope="row">{{dt.id}}</th>
+                                <td>{{dt.detalle_click01}}</td>
+                                <td>{{dt.id_click01 }}</td>
+                                <td>{{dt.id_click02}} {{dt.detalle_click02}}</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </cdk-virtual-scroll-viewport>
+            </div>
+        </div>
+    </div>
+</div>

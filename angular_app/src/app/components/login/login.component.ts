@@ -29,7 +29,7 @@ export class LoginComponent {
         text: 'Un Click Por Mi Planeta.'
       });
       localStorage.setItem('user', JSON.stringify(res))
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/principal']);
     },
       err => {
         Swal.fire({

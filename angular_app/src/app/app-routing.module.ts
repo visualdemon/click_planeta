@@ -11,16 +11,19 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AporteComponent } from './components/aporte/aporte.component';
+import { PrincipalComponent } from './components/principal/principal.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'logout', component: LogoutComponent, canActivate:[AuthGuard]},
-  {path: 'register', component: RegisterComponent},
-  {path: 'forgot-password', component: ForgotPasswordComponent},
-  {path: 'reset-password', component: ResetPasswordComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
-  {path: 'aporte', component: AporteComponent, canActivate:[AuthGuard]},
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'aporte', component: AporteComponent, canActivate: [AuthGuard] },
+  { path: 'principal', component: PrincipalComponent, canActivate: [AuthGuard] },
+
 ];
 
 @NgModule({
