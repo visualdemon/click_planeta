@@ -8,8 +8,6 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./modaledith.component.css'], providers: [AporteService]
 })
 export class ModaledithComponent {
-
-
   aporte: Aporte;
   aplicativos: any = [];
   medidas: any = [];
@@ -20,22 +18,18 @@ export class ModaledithComponent {
     this._aporteService.getClick01(this.aporte).subscribe(
       response => {
         this.aplicativos = response;
+        this._aporteService.getClick02(this.aporte).subscribe(
+          response => {
+            this.medidas = response;
+            this.aporte = this.data;
+          }
+        )
       }
     )
-    this._aporteService.getClick02(this.aporte).subscribe(
-      response => {
-        this.medidas = response;
-      }
-    )
 
 
-
-    console.log("data!");
-    console.log(this.data);
-    this.aporte = this.data;
     
-    console.log("aporte!")
-    console.log(this.aporte);
+
   }
   onSubmit(form:any){
 
