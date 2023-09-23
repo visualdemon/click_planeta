@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { AporteService } from 'src/app/services/aporte.service';
 import { Aporte } from 'src/app/models/aporte';
+import { MatDialog } from '@angular/material/dialog';
+import { ModaledithComponent } from 'src/app/modaledith/modaledith.component';
+
 
 @Component({
   selector: 'app-principal',
@@ -21,7 +24,8 @@ export class PrincipalComponent implements OnInit {
   registros: any = [];
   aporte: Aporte;
   usuario: any;
-  constructor(private _aporteService: AporteService) {
+  constructor(private _aporteService: AporteService, public dialog: MatDialog) {
+
     this.usuario = JSON.parse(localStorage.getItem('user') + '');
     console.log(this.usuario);
     this.aporte = new Aporte(0, this.usuario.id, 0, 0, 0, 0);
@@ -35,6 +39,19 @@ export class PrincipalComponent implements OnInit {
     this.createChart();
     this.createChart2();
     this.createChart3();
+  }
+
+
+
+  openModal(dt:any) {
+    const dialogRef = this.dialog.open(ModaledithComponent, {
+      data: dt,
+      width: '5000px'
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`El modal se cerró con resultado: ${result}`);
+    });
   }
 
   createChart() {
