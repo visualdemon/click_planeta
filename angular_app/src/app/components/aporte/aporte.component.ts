@@ -46,7 +46,13 @@ export class AporteComponent {
       if (result.isConfirmed) {
         this._aporteService.register(this.aporte).subscribe(
           response => {
-            Swal.fire('Guardado!', '', 'success')
+            Swal.fire('Guardado!', '', 'success').then(
+              () => {
+                setTimeout(() => {
+                  window.location.reload();
+                }, 1000);
+              }
+            )
             console.log(response)
           }, error => {
             Swal.fire('Datos No Guardados', '', 'info')

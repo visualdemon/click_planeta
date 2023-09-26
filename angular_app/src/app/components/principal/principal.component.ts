@@ -4,7 +4,7 @@ import { AporteService } from 'src/app/services/aporte.service';
 import { Aporte } from 'src/app/models/aporte';
 import { MatDialog } from '@angular/material/dialog';
 import { ModaledithComponent } from 'src/app/modaledith/modaledith.component';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-principal',
@@ -142,5 +142,37 @@ export class PrincipalComponent implements OnInit {
       }
 
     });
+  }
+
+
+  delete(dt:any) {
+    Swal.fire({
+      icon: 'question',
+      title: 'Desea Eliminar los datos?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this._aporteService.deleteClick03(dt).subscribe(
+          response => {
+            Swal.fire('Eliminado!', '', 'success').then(
+              () => {
+                setTimeout(() => {
+                  window.location.reload();
+                }, 1000);
+              }
+            )
+            console.log(response)
+          }, error => {
+            Swal.fire('Datos No Eliminados', '', 'info')
+            console.log(error)
+          }
+        )
+      } else {
+        Swal.fire('Datos No Eliminados', '', 'error')
+      }
+    })
   }
 }

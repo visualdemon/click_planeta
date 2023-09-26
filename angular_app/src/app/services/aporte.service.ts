@@ -58,14 +58,28 @@ export class AporteService {
     return this.http.post('http://localhost:8000/api/register', params, { headers: headers });
   }
 
-  getClick03(user:any){
+  getClick03(user: any) {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     return this.http.post('http://localhost:8000/api/getClick03', params, { headers: headers });
-
-    
   }
+
+  updateClick03(user: any) {
+    let json = JSON.stringify(user);
+    let params = 'json=' + json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post('http://localhost:8000/api/updateClick03', params, { headers: headers });
+  }
+
+
+  deleteClick03(user: any) {
+    let json = JSON.stringify(user);
+    let params = 'json=' + json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post('http://localhost:8000/api/deleteClick03', params, { headers: headers });
+  }
+
 
 
 }
