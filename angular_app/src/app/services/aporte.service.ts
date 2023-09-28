@@ -55,7 +55,7 @@ export class AporteService {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post('http://localhost:8000/api/register', params, { headers: headers });
+    return this.http.post('http://localhost:8000/api/registercl3', params, { headers: headers });
   }
 
   getClick03(user: any) {

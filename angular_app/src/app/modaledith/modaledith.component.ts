@@ -91,10 +91,6 @@ export class ModaledithComponent {
         Swal.fire('Datos No Eliminados', '', 'error')
       }
     })
-
-
-
-
   }
 
 }

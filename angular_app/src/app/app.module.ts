@@ -17,6 +17,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { AporteComponent } from './components/aporte/aporte.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { ModaledithComponent } from './modaledith/modaledith.component';
+import { CertificadoComponent } from './components/certificado/certificado.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ModaledithComponent } from './modaledith/modaledith.component';
     AporteComponent,
     PrincipalComponent,
     ModaledithComponent,
+    CertificadoComponent,
 
   ],
   imports: [

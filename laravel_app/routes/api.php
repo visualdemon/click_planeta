@@ -22,7 +22,7 @@ Route::group(['namespace' => 'Api\Auth'], function () {
     Route::post('/reset', 'ForgotPasswordController@reset');
     Route::post('/getClick01', 'Click01Controller@getClick01');
     Route::post('/getClick02', 'Click02Controller@getClick02');
-    Route::post('/register', 'Click03Controller@register');
+    Route::post('/registercl3', 'Click03Controller@register');
     Route::post('/getClick03', 'Click03Controller@getClick03');
     Route::post('/updateClick03', 'Click03Controller@updateClick03');
     Route::post('/deleteClick03', 'Click03Controller@deleteClick03');

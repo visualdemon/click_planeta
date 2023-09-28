@@ -12,6 +12,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AporteComponent } from './components/aporte/aporte.component';
 import { PrincipalComponent } from './components/principal/principal.component';
+import { CertificadoComponent } from './components/certificado/certificado.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'aporte', component: AporteComponent, canActivate: [AuthGuard] },
   { path: 'principal', component: PrincipalComponent, canActivate: [AuthGuard] },
+  { path: 'certificado', component: CertificadoComponent, canActivate: [AuthGuard] },
 
 ];
 
