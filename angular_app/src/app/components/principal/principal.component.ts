@@ -27,7 +27,6 @@ export class PrincipalComponent implements OnInit {
   constructor(private _aporteService: AporteService, public dialog: MatDialog) {
 
     this.usuario = JSON.parse(localStorage.getItem('user') + '');
-    console.log(this.usuario);
     this.aporte = new Aporte(0, this.usuario.id, 0, 0, 0, 0);
     this._aporteService.getClick03(this.aporte).subscribe(
       response => {

@@ -32,21 +32,35 @@ class Click03Controller extends Controller
                 'errors' => $validate->errors()
             ];
         } else {
-            $click03 = new Click03();
-            $click03->id_user = $params_array['id_user'];
-            $click03->id_click01 = $params_array['id_click01'];
-            $click03->id_click02 = $params_array['id_click02'];
-            $click03->c_click01 = $params_array['c_click01'];
-            $click03->c_click02 = $params_array['c_click02'];
-            $click03->save();
 
-            if ($click03) {
-                $data = [
-                    'status' => 'success',
-                    'code' => 200,
-                    'message' => 'Datos guardados correctamente!',
-                    'errors' => ''
-                ];
+            $click02 = Click02::where('id', $params_array['id_click02'])->first();
+            if ($click02) {
+                $cantidad = $params_array['c_click02'] / $click02['dividir'];
+
+                $click03 = new Click03();
+                $click03->id_user = $params_array['id_user'];
+                $click03->id_click01 = $params_array['id_click01'];
+                $click03->id_click02 = $params_array['id_click02'];
+                $click03->c_click01 = $params_array['c_click01'];
+                $click03->c_click02 = $params_array['c_click02'];
+                $click03->cg_click02 = $cantidad;
+                $click03->save();
+
+                if ($click03) {
+                    $data = [
+                        'status' => 'success',
+                        'code' => 200,
+                        'message' => 'Datos guardados correctamente!',
+                        'errors' => ''
+                    ];
+                } else {
+                    $data = [
+                        'status' => 'error',
+                        'code' => 404,
+                        'message' => 'Datos No Guardados, por favor verificar!',
+                        'errors' => 'Error al guardar'
+                    ];
+                }
             } else {
                 $data = [
                     'status' => 'error',
@@ -55,6 +69,7 @@ class Click03Controller extends Controller
                     'errors' => 'Error al guardar'
                 ];
             }
+
         }
         return response($data, 200);
     }
@@ -151,7 +166,8 @@ class Click03Controller extends Controller
     }
 
 
-    public function deleteClick03(Request $request){
+    public function deleteClick03(Request $request)
+    {
         $json = $request->input('json', null);
         $params_array = json_decode($json, true);
 
@@ -171,17 +187,17 @@ class Click03Controller extends Controller
                 'message' => 'Error al traer datos!',
                 'errors' => $validate->errors()
             ];
-        }else{
+        } else {
             $click03 = Click03::where('id', $params_array['id'])->delete();
 
-            if($click03){
+            if ($click03) {
                 $data = [
                     'status' => 'success',
                     'code' => 200,
                     'message' => 'Datos Eliminados!',
                     'errors' => ''
                 ];
-            }else{
+            } else {
                 $data = [
                     'status' => 'success',
                     'code' => 200,
@@ -190,7 +206,8 @@ class Click03Controller extends Controller
                 ];
             }
         }
-        
+
         return $data;
     }
+
 }

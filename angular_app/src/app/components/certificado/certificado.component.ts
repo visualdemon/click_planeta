@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class CertificadoComponent {
 
+
+  usuario: any;
+  constructor(){
+    this.usuario = JSON.parse(localStorage.getItem('user') + '');
+   
+  }
 }
