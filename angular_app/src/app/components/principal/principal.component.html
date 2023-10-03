@@ -16,7 +16,7 @@
             <div class="card-body">
                 <div style="display: block;">
                     <div class="chart-container">
-                        <canvas id="MyChart">{{ chart }}</canvas>
+<!--                         <canvas id="MyChart">{{ chart }}</canvas> -->
                     </div>
                 </div>
             </div>
@@ -27,13 +27,13 @@
     <div class="col-sm-3 pb-3 prueba">
         <div class="card card-secondary">
             <div class="card-header">
-                <h3 class="card-title">Tus aportes totales a la campaña han sido {{aportes}} kb</h3>
+                <h3 class="card-title">Tus aportes totales a la campaña han sido {{aportes}} Mb</h3>
                 <div class="card-tools">
                 </div>
             </div>
             <div class="card-body">
                 <div class="chart-container">
-                    <canvas id="MyChart2">{{ chart2 }}</canvas>
+<!--                     <canvas id="MyChart2">{{ chart2 }}</canvas> -->
                 </div>
             </div>
             <div class="card-footer">
@@ -44,14 +44,14 @@
     <div class="col-sm-3 pb-3 prueba">
         <div class="card card-secondary">
             <div class="card-header">
-                <h3 class="card-title">El último mes has aportado ha sido en diciembre con un total de {{gigabytes}} GB
+                <h3 class="card-title">El último mes has aportado ha sido en {{mes}} con un total de {{gigabytes}} GB
                 </h3>
                 <div class="card-tools">
                 </div>
             </div>
             <div class="card-body">
                 <div class="chart-container">
-                    <canvas id="MyChart3">{{ chart3 }}</canvas>
+<!--                     <canvas id="MyChart3">{{ chart3 }}</canvas> -->
                 </div>
             </div>
             <div class="card-footer">
@@ -83,8 +83,8 @@
                             <tr *ngFor="let dt of registros">
                                 <th scope="row">{{dt.id}}</th>
                                 <td>{{dt.detalle_click01}}</td>
-                                <td>{{dt.id_click01 }}</td>
-                                <td>{{dt.id_click02}} {{dt.detalle_click02}}</td>
+                                <td>{{dt.c_click01 }}</td>
+                                <td>{{dt.c_click02}} {{dt.detalle_click02}}</td>
                                 <td><i class="fa-pencil"></i>
                                     <a class="a1" style="cursor: pointer;" (click)="openModal(dt)">
                                         <mat-icon>edit</mat-icon>

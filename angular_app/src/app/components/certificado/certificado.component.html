@@ -2,30 +2,60 @@
     <div class="row">
         <div class="col-md-12">
             <h2 class="text-center mb-3">Certificado</h2>
-            <hr class="mb-4">
             <div class="row justify-content-center">
-
                 <div class="col-md-12 offset-md-1">
                     <span class="anchor" id="formComplex"></span>
                     <div class="card card-outline-secondary">
                         <div class="card-body">
-                            <div class="col-sm-8 pb-3 ">
-                                <h2 class="div1">CERTIFICACIÓN
-                                    <br>
-                                    VIGIA ECODIGITAL
-                                </h2>
-                                <div class="div1">
-                                    CERTIFICA A:
-                                    <br>
-                                    {{usuario.name}}
+                            <div class="row mt-12">
+                                <div class="col-sm-7 pb-3 ">
+                                    <h2>CERTIFICACIÓN
+                                        <br>
+                                        VIGIA ECODIGITAL
+                                    </h2>
+                                    <div>
+                                        CERTIFICA A:
+                                        <br>
+                                        {{usuario.name}}
+                                    </div>
+                                    <div>
+                                        Por efectuar exitosamente la limpieza ecodigital en sus herramientas
+                                        tecnológico/digitales, aprendiendo ...
+                                    </div>
                                 </div>
-                                <div>
-                                    Por efectuar exitosamente la limpieza ecodigital en sus herramientas
-                                    tecnológico/digitales, aprendiendo ...
+                                <div class="col-sm-3 pb-3">
+                                    <div>
+                                        <b>
+                                            Total Aporte:
+                                        </b>
+                                        <br>
+                                        {{data.total_eliminado}} Mb
+                                        <br>
+                                        <b>
+                                            Energia ahorrada:
+                                        </b>
+                                        <br>
+                                        {{data.energia_ahorrada}} KWh
+                                        <br>
+                                        <b>
+                                            Emisiones CO2:
+                                        </b>
+                                        <br>
+                                        {{data.emisiones_co2}} ppm
+                                        <br>
+                                        <b>
+                                            Ahorro en dolares CO2:
+                                        </b>
+                                        <br>
+                                        {{data.ahorro_dolares}}
+                                        <br>
+                                        <b>
+                                            Bombillas led encendidas:
+                                        </b>
+                                        <br>
+                                        {{data.encendidos}}
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-4 pb-3">
-
                             </div>
                         </div>
                     </div>

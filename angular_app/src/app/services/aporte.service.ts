@@ -80,6 +80,31 @@ export class AporteService {
     return this.http.post('http://localhost:8000/api/deleteClick03', params, { headers: headers });
   }
 
+  getData(user: any) {
+    let json = JSON.stringify(user);
+    let params = 'json=' + json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post('http://localhost:8000/api/getData', params, { headers: headers });
+  }
+
+
+  getGigasLastMonth(user: any) {
+    let json = JSON.stringify(user);
+    let params = 'json=' + json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post('http://localhost:8000/api/getGigasLastMonth', params, { headers: headers });
+  }
+
+
+  getDataUser(user: any) {
+    let json = JSON.stringify(user);
+    let params = 'json=' + json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post('http://localhost:8000/api/getDataUser', params, { headers: headers });
+  }
+
+
+
 
 
 }

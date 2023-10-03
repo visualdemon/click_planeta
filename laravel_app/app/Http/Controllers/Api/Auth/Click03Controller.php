@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Click03;
+use Carbon\Carbon;
 
 class Click03Controller extends Controller
 {
@@ -35,8 +36,11 @@ class Click03Controller extends Controller
 
             $click02 = Click02::where('id', $params_array['id_click02'])->first();
             if ($click02) {
-                $cantidad = $params_array['c_click02'] / $click02['dividir'];
 
+                date_default_timezone_set('America/Bogota');
+                $fecha = Date('Y-m-d');
+
+                $cantidad = $params_array['c_click02'] / $click02['dividir'];
                 $click03 = new Click03();
                 $click03->id_user = $params_array['id_user'];
                 $click03->id_click01 = $params_array['id_click01'];
@@ -44,6 +48,8 @@ class Click03Controller extends Controller
                 $click03->c_click01 = $params_array['c_click01'];
                 $click03->c_click02 = $params_array['c_click02'];
                 $click03->cg_click02 = $cantidad;
+                $click03->fecha = $fecha;
+
                 $click03->save();
 
                 if ($click03) {
@@ -137,14 +143,20 @@ class Click03Controller extends Controller
                 'errors' => $validate->errors()
             ];
         } else {
-            $click03 = Click03::where('id', $params_array['id'])->update([
-                'id_user' => $params_array['id_user'],
-                'id_click01' => $params_array['id_click01'],
-                'id_click02' => $params_array['id_click02'],
-                'c_click02' => $params_array['c_click02'],
-                'c_click01' => $params_array['c_click01']
-            ]);
 
+            $click02 = Click02::where('id', $params_array['id_click02'])->first();
+            if ($click02) {
+                $cantidad = $params_array['c_click02'] / $click02['dividir'];
+                $click03 = Click03::where('id', $params_array['id'])->update([
+                    'id_user' => $params_array['id_user'],
+                    'id_click01' => $params_array['id_click01'],
+                    'id_click02' => $params_array['id_click02'],
+                    'c_click02' => $params_array['c_click02'],
+                    'c_click01' => $params_array['c_click01'],
+                    'cg_click02' => $cantidad
+
+                ]);
+            }
 
             if ($click03) {
                 $data = [
@@ -203,6 +215,105 @@ class Click03Controller extends Controller
                     'code' => 200,
                     'message' => 'Datos No Eliminados!',
                     'errors' => ''
+                ];
+            }
+        }
+
+        return $data;
+    }
+    public function getData(Request $request)
+    {
+        $json = $request->input('json', null);
+        $params_array = json_decode($json, true);
+
+        $validate = Validator::make($params_array, [
+            'id_user' => 'required',
+
+        ]);
+
+        if ($validate->fails()) {
+            $data = [
+                'status' => 'error',
+                'code' => 404,
+                'message' => 'Error al traer datos!',
+                'errors' => $validate->errors()
+            ];
+        } else {
+
+            $click03 = Click03::where('id_user', $params_array['id_user'])->get();
+            if ($click03) {
+                $total_eliminado = 0;
+                $energia_ahorrada = 0;
+                $emisiones_co2 = 0;
+                $ahorro_dolares = 0;
+                $encendidos = 0;
+                foreach ($click03 as $key) {
+                    //total eliminado
+                    $total_eliminado += ($key->cg_click02 * 1000);
+                }
+                //energia ahorrada
+                $energia_ahorrada = ($total_eliminado / 1024) * 6.536;
+                //emisiones C02
+                $emisiones_co2 = (($total_eliminado / 1024) * 831) / 1000000;
+                //ahorro dolares
+                $ahorro_dolares = ($total_eliminado / 1024) * 0.1245398;
+                //encendidos
+                $encendidos = ($total_eliminado / 1024) * 0.145;
+
+                $data = [
+                    'total_eliminado' => number_format($total_eliminado, 2),
+                    'energia_ahorrada' => number_format($energia_ahorrada, 2),
+                    'emisiones_co2' => number_format($emisiones_co2, 4),
+                    'ahorro_dolares' => number_format($ahorro_dolares, 2),
+                    'encendidos' => number_format($encendidos, 2)
+                ];
+            }
+        }
+        return $data;
+    }
+
+    public function getGigasLastMonth(Request $request)
+    {
+
+
+
+        $json = $request->input('json', null);
+        $params_array = json_decode($json, true);
+
+        $validate = Validator::make($params_array, [
+            'id_user' => 'required',
+
+        ]);
+
+        if ($validate->fails()) {
+            $data = [
+                'status' => 'error',
+                'code' => 404,
+                'message' => 'Error al traer datos!',
+                'errors' => $validate->errors()
+            ];
+        } else {
+
+            $primerDiaMesAnterior = date("Y-m-01", strtotime("last month"));
+
+            // Obtener el último día del mes anterior
+            $ultimoDiaMesAnterior = date("Y-m-t", strtotime("last month"));
+
+            $click03 = Click03::where('id_user', $params_array['id_user'])->whereBetween('fecha', [$primerDiaMesAnterior, $ultimoDiaMesAnterior])
+                ->where('id_user', $params_array['id_user'])->get();
+
+            if ($click03) {
+                $sumatoria = 0;
+                foreach ($click03 as $key) {
+                    $sumatoria += $key->cg_click02;
+                }
+
+                $fecha = Carbon::parse($primerDiaMesAnterior);
+                $nombre_mes = $fecha->formatLocalized('%B');
+
+                $data = [
+                    'mes' => $nombre_mes,
+                    'cantidad' => $sumatoria
                 ];
             }
         }

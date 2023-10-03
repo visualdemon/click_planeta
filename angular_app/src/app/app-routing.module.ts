@@ -13,6 +13,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AporteComponent } from './components/aporte/aporte.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { CertificadoComponent } from './components/certificado/certificado.component';
+import { PersonalComponent } from './components/personal/personal.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'aporte', component: AporteComponent, canActivate: [AuthGuard] },
   { path: 'principal', component: PrincipalComponent, canActivate: [AuthGuard] },
   { path: 'certificado', component: CertificadoComponent, canActivate: [AuthGuard] },
+  { path: 'informacion', component: PersonalComponent, canActivate: [AuthGuard] },
 
 ];
 

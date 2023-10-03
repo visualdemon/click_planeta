@@ -18,6 +18,7 @@ import { AporteComponent } from './components/aporte/aporte.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { ModaledithComponent } from './modaledith/modaledith.component';
 import { CertificadoComponent } from './components/certificado/certificado.component';
+import { PersonalComponent } from './components/personal/personal.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { CertificadoComponent } from './components/certificado/certificado.compo
     PrincipalComponent,
     ModaledithComponent,
     CertificadoComponent,
+    PersonalComponent,
 
   ],
   imports: [

@@ -33,13 +33,13 @@ class RegisterController extends Controller
         if ($validate->fails()) {
             $user_email = User::where('email', $params_array['email'])->first();
             $user_pass = User::where('docemp', $params_array['docemp'])->first();
-            if($user_email){
+            if ($user_email) {
                 $message = 'Ya existe un registro con el Email suministrado!';
-            }else if($user_pass){
+            } else if ($user_pass) {
                 $message = 'Ya existe un registro con el Numero de Documento suministrado!';
-            }else if($user_email and $user_pass){
+            } else if ($user_email and $user_pass) {
                 $message = 'Ya existe un registro con el Email y Numero de Documento suministrado!';
-            }else{
+            } else {
                 $message = '';
             }
 
@@ -92,22 +92,24 @@ class RegisterController extends Controller
     }
 
 
-
-    public function getGener14(Request $request)
+    public function getData(Request $request)
     {
+        $json = $request->input('json', null);
+        $params_array = json_decode($json, true);
+        $validate = Validator::make($params_array, [
+            'id_user' => 'required'
+        ]);
 
-        $gener14 = Gener14::all();
-        $array = array();
-        if ($gener14) {
-            foreach ($gener14 as $key) {
-                $array_ = array(
-                    'codpai' => $key->codpai,
-                    'detpai' => $key->detpai,
-                    'cofael' => $key->cofael,
-                );
-                array_push($array, $array_);
-            }
+        if ($validate->fails()) {
+            $data = [
+                'status' => 'error',
+                'code' => 404,
+                'message' => 'Faltan datos!',
+                'errors' => $validate->errors()
+            ];
+        }else{
+            $data = User::where('id', $params_array['id_user'])->first();
         }
-        return response($array, 200);
+        return $data;
     }
 }

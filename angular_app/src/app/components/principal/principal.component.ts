@@ -21,9 +21,12 @@ export class PrincipalComponent implements OnInit {
   chart3: any;
   aportes: any = 0;
   gigabytes: any = 0;
+  mes: any = '';
   registros: any = [];
   aporte: Aporte;
   usuario: any;
+  data: any = [];
+  result: any = [];
   constructor(private _aporteService: AporteService, public dialog: MatDialog) {
 
     this.usuario = JSON.parse(localStorage.getItem('user') + '');
@@ -33,7 +36,25 @@ export class PrincipalComponent implements OnInit {
         this.registros = response;
       }
     )
+
+
+    this._aporteService.getGigasLastMonth(this.aporte).subscribe(
+      response => {
+        this.result = response;
+        this.gigabytes = this.result.cantidad
+        this.mes = this.result.mes
+      }
+    )
+
+    this._aporteService.getData(this.aporte).subscribe(
+      response => {
+        this.data = response;
+        this.bombillas = this.data.encendidos
+        this.aportes = this.data.total_eliminado
+      }
+    )
   }
+
   ngOnInit(): void {
     this.createChart();
     this.createChart2();
@@ -42,12 +63,12 @@ export class PrincipalComponent implements OnInit {
 
 
 
-  openModal(dt:any) {
+  openModal(dt: any) {
     const dialogRef = this.dialog.open(ModaledithComponent, {
       data: dt,
       width: '5000px'
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(`El modal se cerró con resultado: ${result}`);
     });
@@ -144,7 +165,7 @@ export class PrincipalComponent implements OnInit {
   }
 
 
-  delete(dt:any) {
+  delete(dt: any) {
     Swal.fire({
       icon: 'question',
       title: 'Desea Eliminar los datos?',
