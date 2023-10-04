@@ -107,9 +107,69 @@ class RegisterController extends Controller
                 'message' => 'Faltan datos!',
                 'errors' => $validate->errors()
             ];
-        }else{
+        } else {
             $data = User::where('id', $params_array['id_user'])->first();
         }
+        return $data;
+    }
+
+    public function updateUser(Request $request)
+    {
+        $json = $request->input('json', null);
+        $params_array = json_decode($json, true);
+        $validate = Validator::make($params_array, [
+            'id' => 'required',
+            'tipdoc' => 'required',
+            'docemp' => 'required',
+            'prinom' => 'required',
+            'priape' => 'required',
+            'fecnac' => 'required',
+            'codsex' => 'required',
+            'ciudad' => 'required',
+            'direccion' => 'required',
+            'email' => 'required'
+        ]);
+
+        if ($validate->fails()) {
+            $data = [
+                'status' => 'error',
+                'code' => 404,
+                'message' => 'Faltan datos!',
+                'errors' => $validate->errors()
+            ];
+        } else {
+            $users = User::where('id', $params_array['id'])->update(
+                [
+                    'tipdoc' => $params_array['tipdoc'],
+                    'docemp' => $params_array['docemp'],
+                    'priape' => $params_array['priape'],
+                    'prinom' => $params_array['prinom'],
+                    'segnom' => $params_array['segnom'],
+                    'segape' => $params_array['segape'],
+                    'fecnac' => $params_array['fecnac'],
+                    'codsex' => $params_array['codsex'],
+                    'ciudad' => $params_array['ciudad'],
+                    'direccion' => $params_array['direccion'],
+                    'email' => $params_array['email'],
+                ]
+            );
+            if ($users) {
+                $data = [
+                    'status' => 'success',
+                    'code' => 200,
+                    'message' => 'Datos Actualizados!',
+                    'errors' => ''
+                ];
+            } else {
+                $data = [
+                    'status' => 'error',
+                    'code' => 404,
+                    'message' => 'Datos No Actualizados!',
+                    'errors' => 'Datos No Actualizados'
+                ];
+            }
+        }
+
         return $data;
     }
 }

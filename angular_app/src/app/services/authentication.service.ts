@@ -98,4 +98,12 @@ export class AuthenticationService {
     }
     return this.http.post('http://localhost:8000/api/reset', data);
   }
+
+  updateUser(user: any) {
+
+    let json = JSON.stringify(user);
+    let params = 'json=' + json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post('http://localhost:8000/api/updateUser', params, { headers: headers });
+  }
 }
