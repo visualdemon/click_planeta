@@ -1,14 +1,11 @@
-.hold-transition.login-page {
-  background: linear-gradient(to bottom, #66ff66, #aaffaa); /* Cambia los colores según tus preferencias */
-}
 
 .login-logo {
   text-align: center; /* Centra el contenido del .login-logo */
 }
 
 .login-logo img {
-  width: 100px; /* Ajusta el ancho de tu logo según tus necesidades */
-  height: auto; /* Mantén la proporción de aspecto */
+  width: 100px; /* Ajusta el ancho del logo */
+  height: auto; /* proporción de aspecto */
 }
 
 

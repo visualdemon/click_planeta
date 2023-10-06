@@ -1,0 +1,36 @@
+/* Estilo para la barra de navegación */
+.navbar {
+  background: linear-gradient(to bottom, #006400, #008000); /* Degradado de verde oscuro a verde claro */
+  border-bottom: 1px solid #ddd; /* Línea de separación opcional */
+}
+
+/* Estilo para el texto y enlaces del menú */
+.navbar a.navbar-brand,
+.navbar a.nav-link {
+  color: #fff; /* Texto blanco */
+}
+
+/* Estilo para el ícono del usuario */
+.navbar .fa-user {
+  color: #fff; /* Ícono blanco */
+}
+
+/* Estilo para el menú desplegable */
+.navbar .dropdown-menu {
+  background-color: #008000; /* Fondo verde claro */
+}
+
+.navbar .dropdown-item:hover {
+  background-color: #fcc112; /* Cambia el color de fondo en hover a #fcc112 */
+  color: #000; /* Cambia el color del texto en hover a negro, o el color deseado */
+}
+
+/* Estilo para los enlaces del menú desplegable */
+.navbar .dropdown-item {
+  color: #fff; /* Texto blanco */
+}
+
+/* Estilo para el botón desplegable */
+.navbar .navbar-toggler-icon {
+  background-color: #fff; /* Ícono del botón blanco */
+}

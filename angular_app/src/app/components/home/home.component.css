@@ -1,0 +1,66 @@
+
+
+/* Estilo para el encabezado */
+h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilo para el párrafo principal */
+p {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+/* Estilo para la tarjeta de estadísticas */
+.card {
+  background-color: #f8f9fa;
+  border: none;
+  margin-top: 20px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* Estilo para la lista de estadísticas */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Estilo para los íconos */
+i {
+  margin-right: 10px;
+  font-size: 18px;
+  color: #007bff;
+}
+
+/* Estilo para los botones de llamado a la acción */
+.btn-primary,
+.btn-success {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
+/* Estilo para los mensajes debajo de los botones */
+.btn-message {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Estilo para el fondo del contenedor */
+.container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
