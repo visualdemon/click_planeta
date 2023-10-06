@@ -1,65 +1,62 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+<div class="py-3">
 
-<div>
     <div class="title">
         <h3>Bienvenido {{nombre}} a Un Click Por Mi Planeta</h3>
     </div>
 </div>
-<br>
-<div class="row mt-12 div1">
-    <div class="col-sm-3 pb-3 prueba">
-        <div class="card card-secondary">
-            <div class="card-header">
-                <h3 class="card-title">Esta campaña va ahorrando lo equivalente a {{bombillas}} bombillas</h3>
-            </div>
-            <div class="card-body">
-                <div style="display: block;">
-                    <div class="chart-container">
-<!--                         <canvas id="MyChart">{{ chart }}</canvas> -->
+          <!-- Datos adicionales en cards 100% -->
+          <div class="mb-3">
+          <div class="row mt-5 justify-content-center">
+            <div class="col-md-2 text-center">
+                <div class="card bg-success text-white rounded-3">
+                    <div class="card-body">
+                        <i class="fas fa-chart-bar fa-3x"></i> <!-- Ícono -->
+                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.total_eliminado}} Mb</p> <!-- Valor -->
+                        <p class="card-text font-weight-bold">Tus Aportes</p>
                     </div>
                 </div>
             </div>
-            <div class="card-footer">
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-3 pb-3 prueba">
-        <div class="card card-secondary">
-            <div class="card-header">
-                <h3 class="card-title">Tus aportes totales a la campaña han sido {{aportes}} Mb</h3>
-                <div class="card-tools">
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="chart-container">
-<!--                     <canvas id="MyChart2">{{ chart2 }}</canvas> -->
-                </div>
-            </div>
-            <div class="card-footer">
+            <div class="col-md-2 text-center">
+                <div class="card bg-success text-white rounded-3">
+                    <div class="card-body">
+                        <i class="fas fa-bolt fa-3x"></i> <!-- Ícono -->
+                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.energia_ahorrada}} KWh</p> <!-- Valor -->
+                        <p class="card-text font-weight-bold">Energía Ahorrada</p>
 
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-3 pb-3 prueba">
-        <div class="card card-secondary">
-            <div class="card-header">
-                <h3 class="card-title">El último mes has aportado ha sido en {{mes}} con un total de {{gigabytes}} GB
-                </h3>
-                <div class="card-tools">
+                    </div>
                 </div>
             </div>
-            <div class="card-body">
-                <div class="chart-container">
-<!--                     <canvas id="MyChart3">{{ chart3 }}</canvas> -->
+            <div class="col-md-2 text-center">
+                <div class="card bg-success text-white rounded-3">
+                    <div class="card-body">
+                        <i class="fas fa-cloud fa-3x"></i> <!-- Ícono -->
+                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.emisiones_co2}} ppm</p> <!-- Valor -->
+                        <p class="card-text font-weight-bold">Co2</p>
+                    </div>
                 </div>
             </div>
-            <div class="card-footer">
+            <div class="col-md-2 text-center">
+                <div class="card bg-success text-white rounded-3">
+                    <div class="card-body">
+                        <i class="fas fa-dollar-sign fa-3x"></i> <!-- Ícono -->
+                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.ahorro_dolares}} USD</p> <!-- Valor -->
+                        <p class="card-text font-weight-bold">Dinero</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 text-center">
+                <div class="card bg-success text-white rounded-3">
+                    <div class="card-body">
+                        <i class="fas fa-lightbulb fa-3x"></i> <!-- Ícono -->
+                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.encendidos}}BOM</p> <!-- Valor -->
+                        <p class="card-text font-weight-bold">Encendidas</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<br>
+      </div>
 
 <div class="row mt-12 div1">
     <div class="col-sm-10 pb-3 prueba">

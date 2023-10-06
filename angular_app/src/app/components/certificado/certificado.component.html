@@ -1,66 +1,82 @@
-<div class="container py-3">
-    <div class="row">
-        <div class="col-md-12">
-            <h2 class="text-center mb-3">Certificado</h2>
-            <div class="row justify-content-center">
-                <div class="col-md-12 offset-md-1">
-                    <span class="anchor" id="formComplex"></span>
-                    <div class="card card-outline-secondary">
-                        <div class="card-body">
-                            <div class="row mt-12">
-                                <div class="col-sm-7 pb-3 ">
-                                    <h2>CERTIFICACIÓN
-                                        <br>
-                                        VIGIA ECODIGITAL
-                                    </h2>
-                                    <div>
-                                        CERTIFICA A:
-                                        <br>
-                                        {{usuario.name}}
-                                    </div>
-                                    <div>
-                                        Por efectuar exitosamente la limpieza ecodigital en sus herramientas
-                                        tecnológico/digitales, aprendiendo ...
-                                    </div>
-                                </div>
-                                <div class="col-sm-3 pb-3">
-                                    <div>
-                                        <b>
-                                            Total Aporte:
-                                        </b>
-                                        <br>
-                                        {{data.total_eliminado}} Mb
-                                        <br>
-                                        <b>
-                                            Energia ahorrada:
-                                        </b>
-                                        <br>
-                                        {{data.energia_ahorrada}} KWh
-                                        <br>
-                                        <b>
-                                            Emisiones CO2:
-                                        </b>
-                                        <br>
-                                        {{data.emisiones_co2}} ppm
-                                        <br>
-                                        <b>
-                                            Ahorro en dolares CO2:
-                                        </b>
-                                        <br>
-                                        {{data.ahorro_dolares}}
-                                        <br>
-                                        <b>
-                                            Bombillas led encendidas:
-                                        </b>
-                                        <br>
-                                        {{data.encendidos}}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<div class="container mt-2 mb-3">
+  <div class="row justify-content-center">
+      <div class="col-md-10">
+          <!-- Logo y Título -->
+          <div class="row align-items-center">
+            <div class="col-md-3 text-center mb-4">
+                <img src="assets/logo.png" alt="Logo" class="img-fluid mx-auto d-block" style="width: 50%;">
+            </div>
+            <div class="col-md-9">
+                <h2>Certificación Vigía Ecodigital</h2>
             </div>
         </div>
-    </div>
+
+
+          <!-- Párrafo más pequeño -->
+          <p class="text-center font-size-rem">
+              La Fundación FEPROPAZ certifica a:
+          </p>
+
+          <!-- Nombre del usuario en letra grande y negrita -->
+          <p class="text-center font-weight-bold nombre">
+              {{usuario.name}}
+          </p>
+
+          <p class="text-center leyenda">
+            Por efectuar exitosamente la limpieza ecodigital en sus herramientas tecnológicas/digitales, aprendiendo a hacer uso racional de ellas para hacerlas sostenibles con el planeta, contribuyendo en la mitigación del impacto ambiental y el calentamiento global. Gracias a su aporte en la campaña "Un click por mi planeta 2023" y apropiarse de la cultura ecodigital, se hace merecedor de la certificación como: <br><br>
+            <span class="font-weight-bold vigia">VIGÍA ECO DIGITAL</span>
+          </p>
+
+          <!-- Datos adicionales en cards ocupando el 100% -->
+          <div class="row mt-5 justify-content-center">
+              <div class="col-md-2 text-center">
+                  <div class="card bg-success text-white rounded-3">
+                      <div class="card-body">
+                          <i class="fas fa-chart-bar fa-3x"></i> <!-- Ícono -->
+                          <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.total_eliminado}} <br>Mb</p> <!-- Valor -->
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-2 text-center">
+                  <div class="card bg-success text-white rounded-3">
+                      <div class="card-body">
+                          <i class="fas fa-bolt fa-3x"></i> <!-- Ícono -->
+                          <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.energia_ahorrada}} <br>KWh</p> <!-- Valor -->
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-2 text-center">
+                  <div class="card bg-success text-white rounded-3">
+                      <div class="card-body">
+                          <i class="fas fa-cloud fa-3x"></i> <!-- Ícono -->
+                          <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.emisiones_co2}} <br>ppm</p> <!-- Valor -->
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-2 text-center">
+                  <div class="card bg-success text-white rounded-3">
+                      <div class="card-body">
+                          <i class="fas fa-dollar-sign fa-3x"></i> <!-- Ícono -->
+                          <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.ahorro_dolares}} <br>USD</p> <!-- Valor -->
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-2 text-center">
+                  <div class="card bg-success text-white rounded-3">
+                      <div class="card-body">
+                          <i class="fas fa-lightbulb fa-3x"></i> <!-- Ícono -->
+                          <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.encendidos}}<br>BOM</p> <!-- Valor -->
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Firma -->
+          <div class="text-center mt-2">
+              <img src="assets/firma.png" alt="Firma" class="img-fluid mx-auto d-block" style="width: 200px;">
+              <p class="font-weight-bold">ANGELA MARÍA CRISTANCHO PRADA</p>
+              <p class="font-italic">PRESIDENTE EJECUTIVA FEPROPAZ</p>
+          </div>
+      </div>
+  </div>
 </div>
