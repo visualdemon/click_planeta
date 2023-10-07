@@ -113,6 +113,8 @@ class Click03Controller extends Controller
                         'siglas_click02' => $click02->siglas,
                         'c_click01' => $key->c_click01,
                         'c_click02' => $key->c_click02,
+                        'fecha' => $key->fecha,
+
                     );
                     array_push($array, $array_);
                 }
@@ -271,6 +273,60 @@ class Click03Controller extends Controller
         }
         return $data;
     }
+
+    public function getGeneralData(Request $request)
+    {
+        $json = $request->input('json', null);
+        $params_array = json_decode($json, true);
+
+        $validate = Validator::make($params_array, [
+        ]);
+
+        if ($validate->fails()) {
+            $data = [
+                'status' => 'error',
+                'code' => 404,
+                'message' => 'Error al traer datos!',
+                'errors' => $validate->errors()
+            ];
+        } else {
+
+            $click03 = Click03::get();
+            if ($click03) {
+                $total_eliminado = 0;
+                $energia_ahorrada = 0;
+                $emisiones_co2 = 0;
+                $ahorro_dolares = 0;
+                $encendidos = 0;
+                foreach ($click03 as $key) {
+                    //total eliminado
+                    $total_eliminado += ($key->cg_click02 * 1000);
+                }
+                //energia ahorrada
+                $energia_ahorrada = ($total_eliminado / 1024) * 6.536;
+                //emisiones C02
+                $emisiones_co2 = (($total_eliminado / 1024) * 831) / 1000000;
+                //ahorro dolares
+                $ahorro_dolares = ($total_eliminado / 1024) * 0.1245398;
+                //encendidos
+                $encendidos = ($total_eliminado / 1024) * 0.145;
+                //terabytes
+                $terabytes = $total_eliminado/1000000;
+
+
+                $data = [
+                    'total_eliminado' => number_format($terabytes, 6),
+                    'energia_ahorrada' => number_format($energia_ahorrada, 2),
+                    'emisiones_co2' => number_format($emisiones_co2, 4),
+                    'ahorro_dolares' => number_format($ahorro_dolares, 2),
+                    'encendidos' => number_format($encendidos, 2)
+                ];
+            }
+        }
+        return $data;
+    }
+
+
 
     public function getGigasLastMonth(Request $request)
     {

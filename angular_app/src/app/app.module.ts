@@ -19,7 +19,7 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { ModaledithComponent } from './modaledith/modaledith.component';
 import { CertificadoComponent } from './components/certificado/certificado.component';
 import { PersonalComponent } from './components/personal/personal.component';
-
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { PersonalComponent } from './components/personal/personal.component';
     ModaledithComponent,
     CertificadoComponent,
     PersonalComponent,
-
+    HomeComponent
   ],
   imports: [
     BrowserModule,

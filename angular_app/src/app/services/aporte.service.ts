@@ -87,6 +87,12 @@ export class AporteService {
     return this.http.post('http://localhost:8000/api/getData', params, { headers: headers });
   }
 
+  getGeneralData(user: any) {
+    let json = JSON.stringify(user);
+    let params = 'json=' + json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.http.post('http://localhost:8000/api/getGeneralData', params, { headers: headers });
+  }
 
   getGigasLastMonth(user: any) {
     let json = JSON.stringify(user);

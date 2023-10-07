@@ -27,9 +27,10 @@ Route::group(['namespace' => 'Api\Auth'], function () {
     Route::post('/updateClick03', 'Click03Controller@updateClick03');
     Route::post('/deleteClick03', 'Click03Controller@deleteClick03');
     Route::post('/getData', 'Click03Controller@getData');
+    Route::post('/getGeneralData', 'Click03Controller@getGeneralData');
     Route::post('/getGigasLastMonth', 'Click03Controller@getGigasLastMonth');
     Route::post('/getDataUser', 'RegisterController@getData');
     Route::post('/updateUser', 'RegisterController@updateUser');
-    
+
 
 });

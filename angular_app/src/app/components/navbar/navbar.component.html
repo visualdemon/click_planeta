@@ -13,8 +13,19 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/register" *ngIf="!loggedIn">Registrarse</a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" routerLink="/forgot-password">Recuperar contraseña</a>
+          <a class="nav-link" routerLink="/forgot-password" *ngIf="!loggedIn">Recuperar Contraseña</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/principal" *ngIf="loggedIn">Aportes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/aporte" *ngIf="loggedIn">Aporte Digital</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/certificado" *ngIf="loggedIn">Generar Certificado</a>
         </li>
         <li class="nav-item dropdown" *ngIf="loggedIn">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -22,15 +33,8 @@
             <i class="fa fa-user" aria-hidden="true"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="/principal">Pagina Principal</a>
-            <a class="dropdown-item" routerLink="/aporte">Aporte Digital</a>
-            <a class="dropdown-item" routerLink="/certificado">Generar Certificado</a>
             <a class="dropdown-item" routerLink="/informacion">Información Personal</a>
             <a class="dropdown-item" routerLink="/forgot-password">Cambiar Contraseña</a>
-
-
-            
-
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" routerLink="/logout">Salir</a>
           </div>

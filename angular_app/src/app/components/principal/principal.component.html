@@ -72,7 +72,7 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th scope="col">Id</th>
+                                <th scope="col">Fecha</th>
                                 <th scope="col">Plataforma</th>
                                 <th scope="col">Archivos Borrados</th>
                                 <th scope="col">Cantidad</th>
@@ -81,7 +81,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let dt of registros">
-                                <th scope="row">{{dt.id}}</th>
+                                <th scope="row">{{dt.fecha}}</th>
                                 <td>{{dt.detalle_click01}}</td>
                                 <td>{{dt.c_click01 }}</td>
                                 <td>{{dt.c_click02}} {{dt.detalle_click02}}</td>
