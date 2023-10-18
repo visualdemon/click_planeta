@@ -14,6 +14,7 @@ import { AporteComponent } from './components/aporte/aporte.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { CertificadoComponent } from './components/certificado/certificado.component';
 import { PersonalComponent } from './components/personal/personal.component';
+import { ImagecertificadoComponent } from './components/imagecertificado/imagecertificado.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'principal', component: PrincipalComponent, canActivate: [AuthGuard] },
   { path: 'certificado', component: CertificadoComponent, canActivate: [AuthGuard] },
   { path: 'informacion', component: PersonalComponent, canActivate: [AuthGuard] },
+  { path: 'image', component: ImagecertificadoComponent, canActivate: [AuthGuard] },
 
 ];
 

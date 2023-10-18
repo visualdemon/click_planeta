@@ -6,6 +6,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {MatIconModule} from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -20,6 +21,8 @@ import { ModaledithComponent } from './modaledith/modaledith.component';
 import { CertificadoComponent } from './components/certificado/certificado.component';
 import { PersonalComponent } from './components/personal/personal.component';
 import { HomeComponent } from './components/home/home.component';
+import { ImagecertificadoComponent } from './components/imagecertificado/imagecertificado.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { HomeComponent } from './components/home/home.component';
     ModaledithComponent,
     CertificadoComponent,
     PersonalComponent,
-    HomeComponent
+    HomeComponent,
+    ImagecertificadoComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { HomeComponent } from './components/home/home.component';
     MatIconModule,
     MatDialogModule
   ],
-  providers: [],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

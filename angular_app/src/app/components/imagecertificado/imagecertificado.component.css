@@ -1,0 +1,8 @@
+.contenedor-imagen {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .datos {
+    position: absolute;
+  }
