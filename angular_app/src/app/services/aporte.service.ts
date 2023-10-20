@@ -9,7 +9,7 @@ export class AporteService {
   private isLoggedIn = new BehaviorSubject<boolean>(false);
   public url: string;
   constructor(private http: HttpClient) {
-    this.url = 'https://eco.fepropaz.com/public/api/';
+    this.url = 'http://127.0.0.1:8000/api/';
   }
 
   // Toogle Loggedin
@@ -41,35 +41,35 @@ export class AporteService {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post('https://eco.fepropaz.com/public/api/getClick01', params, { headers: headers });
+    return this.http.post('http://127.0.0.1:8000/api/getClick01', params, { headers: headers });
   }
 
   getClick02(user: any) {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post('https://eco.fepropaz.com/public/api/getClick02', params, { headers: headers });
+    return this.http.post('http://127.0.0.1:8000/api/getClick02', params, { headers: headers });
   }
 
   register(user: any) {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post('https://eco.fepropaz.com/public/api/registercl3', params, { headers: headers });
+    return this.http.post('http://127.0.0.1:8000/api/registercl3', params, { headers: headers });
   }
 
   getClick03(user: any) {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post('https://eco.fepropaz.com/public/api/getClick03', params, { headers: headers });
+    return this.http.post('http://127.0.0.1:8000/api/getClick03', params, { headers: headers });
   }
 
   updateClick03(user: any) {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post('https://eco.fepropaz.com/public/api/updateClick03', params, { headers: headers });
+    return this.http.post('http://127.0.0.1:8000/api/updateClick03', params, { headers: headers });
   }
 
 
@@ -77,28 +77,28 @@ export class AporteService {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post('https://eco.fepropaz.com/public/api/deleteClick03', params, { headers: headers });
+    return this.http.post('http://127.0.0.1:8000/api/deleteClick03', params, { headers: headers });
   }
 
   getData(user: any) {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post('https://eco.fepropaz.com/public/api/getData', params, { headers: headers });
+    return this.http.post('http://127.0.0.1:8000/api/getData', params, { headers: headers });
   }
 
   getGeneralData(user: any) {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post('https://eco.fepropaz.com/public/api/getGeneralData', params, { headers: headers });
+    return this.http.post('http://127.0.0.1:8000/api/getGeneralData', params, { headers: headers });
   }
 
   getGigasLastMonth(user: any) {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post('https://eco.fepropaz.com/public/api/getGigasLastMonth', params, { headers: headers });
+    return this.http.post('http://127.0.0.1:8000/api/getGigasLastMonth', params, { headers: headers });
   }
 
 
@@ -106,7 +106,7 @@ export class AporteService {
     let json = JSON.stringify(user);
     let params = 'json=' + json;
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.post('https://eco.fepropaz.com/public/api/getDataUser', params, { headers: headers });
+    return this.http.post('http://127.0.0.1:8000/api/getDataUser', params, { headers: headers });
   }
 
 

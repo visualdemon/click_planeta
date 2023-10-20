@@ -37,12 +37,16 @@ export class ImagecertificadoComponent {
   setPdf() {
     setTimeout(() => {
       const data = this.myData.nativeElement;
-      const doc = new jsPDF('p', 'pt', 'a4');
+      const doc = new jsPDF({
+        orientation: 'landscape',
+        unit: 'pt',
+        format: 'a4'
+      });
       html2canvas(data).then(canvas => {
-        const imgWidth = 600;
-        const imgHeight = canvas.height * imgWidth / canvas.width;
+        const imgWidth = 770;
+        const imgHeight = canvas.height * imgWidth / canvas.width - 40 ;
         const contentDataURL = canvas.toDataURL('image/png');
-        doc.addImage(contentDataURL, 'PNG', 0, 0, imgWidth, imgHeight);
+        doc.addImage(contentDataURL, 'PNG', 40, 20, imgWidth, imgHeight);
         doc.save('certificado.pdf');
         doc.output('dataurlnewwindow');
       })
