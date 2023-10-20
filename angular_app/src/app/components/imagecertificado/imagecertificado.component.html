@@ -1,39 +1,148 @@
-<div class="contenedor-imagen" id="myData" #myData>
-    <img src="../../../assets/BG-CERTIFICADO.jpg">
-    <div class="datos" style="left: 290px; top: 290px;">
-        <h4> {{usuario.name}}
-        </h4>
+<div id="myData" #myData>
+    <div class="contenedor-imagen" *ngIf="bandera">
+        <img src="../../../assets/BG-CERTIFICADO.jpg">
+        <div class="datos" style="left: 290px; top: 290px;">
+            <h4> {{usuario.name}}
+            </h4>
+        </div>
+
+
+        <div class="datos" style="left: 805px; top: 68px;">
+            <h4>
+                <font color="#FFFFFF">
+                    {{data.energia_ahorrada}} KWh
+                </font>
+            </h4>
+        </div>
+        <div class="datos" style="left: 805px; top: 120px;">
+            <h4>
+                <font color="#FFFFFF">
+                    {{data.emisiones_co2}} ppm
+                </font>
+            </h4>
+        </div>
+
+
+        <div class="datos" style="left: 805px; top: 165px;">
+            <h4>
+                <font color="#FFFFFF">
+                    {{data.ahorro_dolares}} USD
+                </font>
+            </h4>
+        </div>
+
+        <div class="datos" style="left: 805px; top: 220px;">
+            <h4>
+                <font color="#FFFFFF">
+                    {{data.encendidos}} BOM </font>
+            </h4>
+        </div>
     </div>
+</div>
 
 
-    <div class="datos" style="left: 805px; top: 68px;">
-        <h4>
-            <font color="#FFFFFF">
-                {{data.energia_ahorrada}} KWh
-            </font>
-        </h4>
-    </div>
-    <div class="datos" style="left: 805px; top: 120px;">
-        <h4>
-            <font color="#FFFFFF">
-                {{data.emisiones_co2}} ppm
-            </font>
-        </h4>
-    </div>
 
 
-    <div class="datos" style="left: 805px; top: 165px;">
-        <h4>
-            <font color="#FFFFFF">
-                {{data.ahorro_dolares}} USD
-            </font>
-        </h4>
-    </div>
 
-    <div class="datos" style="left: 805px; top: 220px;">
-        <h4>
-            <font color="#FFFFFF">
-                {{data.encendidos}} BOM </font>
-        </h4>
+
+
+
+
+<div class="container mt-2 mb-3" *ngIf="!bandera">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <!-- Logo y Título -->
+            <div class="row align-items-center">
+                <div class="col-md-3 text-center mb-4">
+                    <img src="assets/logo.png" alt="Logo" class="img-fluid mx-auto d-block" style="width: 50%;">
+                </div>
+                <div class="col-md-9">
+                    <h2>Certificación Vigía Ecodigital</h2>
+                </div>
+            </div>
+
+
+
+            <!-- Párrafo más pequeño -->
+            <p class="text-center font-size-rem">
+                La Fundación FEPROPAZ certifica a:
+            </p>
+
+            <!-- Nombre del usuario en letra grande y negrita -->
+            <p class="text-center font-weight-bold nombre">
+                {{usuario.name}}
+            </p>
+
+            <p class="text-center leyenda">
+                Por efectuar exitosamente la limpieza ecodigital en sus herramientas tecnológicas/digitales, aprendiendo
+                a hacer uso racional de ellas para hacerlas sostenibles con el planeta, contribuyendo en la mitigación
+                del impacto ambiental y el calentamiento global. Gracias a su aporte en la campaña "Un click por mi
+                planeta 2023" y apropiarse de la cultura ecodigital, se hace merecedor de la certificación como:
+                <br><br>
+                <span class="font-weight-bold vigia">VIGÍA ECO DIGITAL</span>
+            </p>
+
+            <!-- Datos adicionales en cards ocupando el 100% -->
+            <div class="row mt-5 justify-content-center">
+                <div class="col-md-2 text-center">
+                    <div class="card bg-success text-white rounded-3">
+                        <div class="card-body">
+                            <i class="fas fa-chart-bar fa-3x"></i> <!-- Ícono -->
+                            <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.total_eliminado}}
+                                <br>Mb
+                            </p> <!-- Valor -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="card bg-success text-white rounded-3">
+                        <div class="card-body">
+                            <i class="fas fa-bolt fa-3x"></i> <!-- Ícono -->
+                            <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.energia_ahorrada}}
+                                <br>KWh
+                            </p> <!-- Valor -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="card bg-success text-white rounded-3">
+                        <div class="card-body">
+                            <i class="fas fa-cloud fa-3x"></i> <!-- Ícono -->
+                            <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.emisiones_co2}}
+                                <br>ppm
+                            </p> <!-- Valor -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="card bg-success text-white rounded-3">
+                        <div class="card-body">
+                            <i class="fas fa-dollar-sign fa-3x"></i> <!-- Ícono -->
+                            <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.ahorro_dolares}}
+                                <br>USD
+                            </p> <!-- Valor -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 text-center">
+                    <div class="card bg-success text-white rounded-3">
+                        <div class="card-body">
+                            <i class="fas fa-lightbulb fa-3x"></i> <!-- Ícono -->
+                            <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.encendidos}}<br>BOM
+                            </p> <!-- Valor -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Firma -->
+            <div class="text-center mt-2">
+                <img src="assets/firma.png" alt="Firma" class="img-fluid mx-auto d-block" style="width: 200px;">
+                <p class="font-weight-bold">ANGELA MARÍA CRISTANCHO PRADA</p>
+                <p class="font-italic">PRESIDENTE EJECUTIVA FEPROPAZ</p>
+                <div>
+                    <button type="button" class="btn btn-info" (click)="generar()">Generar Certificado</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

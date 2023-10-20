@@ -1,8 +1,33 @@
 .contenedor-imagen {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .datos {
-    position: absolute;
-  }
+  position: relative;
+  display: inline-block;
+}
+
+.datos {
+  position: absolute;
+}
+
+
+
+.container {
+  border: 2px solid #eee;
+  /* Agregar un borde gris claro */
+  border-radius: 20px;
+  /* Agregar bordes redondeados de 20px */
+  padding: 20px;
+  /* Espaciado interior para separar el contenido del borde */
+}
+
+.leyenda {
+
+  font-size: 0.8rem;
+}
+
+.vigia {
+  font-size: 1.2rem;
+}
+
+.nombre {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}

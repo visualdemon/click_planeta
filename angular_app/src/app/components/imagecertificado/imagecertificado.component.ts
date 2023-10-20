@@ -18,6 +18,7 @@ export class ImagecertificadoComponent {
   aporte: Aporte;
   usuario: any;
   data: any = [];
+  bandera: any = false;
   constructor(private _aporteService: AporteService) {
     this.usuario = JSON.parse(localStorage.getItem('user') + '');
     this.aporte = new Aporte(0, this.usuario.id, 0, 0, 0, 0);
@@ -28,7 +29,18 @@ export class ImagecertificadoComponent {
       }
     )
 
+
+
+  }
+
+  generar() {
+
+    this.bandera = true;
     this.setPdf();
+    setTimeout(() => {
+      this.bandera = false;
+    }, 150);
+
 
 
   }
@@ -43,13 +55,13 @@ export class ImagecertificadoComponent {
         format: 'a4'
       });
       html2canvas(data).then(canvas => {
-        const imgWidth = 770;
-        const imgHeight = canvas.height * imgWidth / canvas.width - 40 ;
+        const imgWidth = 1100;
+        const imgHeight = canvas.height * imgWidth / canvas.width ;
         const contentDataURL = canvas.toDataURL('image/png');
-        doc.addImage(contentDataURL, 'PNG', 40, 20, imgWidth, imgHeight);
+        doc.addImage(contentDataURL, 'PNG', 35, 20, imgWidth, imgHeight);
         doc.save('certificado.pdf');
         doc.output('dataurlnewwindow');
       })
-    }, 500);
+    }, 100);
   }
 }
