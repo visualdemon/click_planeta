@@ -1,19 +1,25 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <div class="py-3">
-
     <div class="title">
-        <h3>Bienvenido {{nombre}} a Un Click Por Mi Planeta</h3>
+        <h4>Bienvenido</h4>
+        <h4>{{usuario.name}}</h4>
+        <h4>Un Click Por Mi Planeta</h4>
     </div>
 </div>
-          <!-- Datos adicionales en cards 100% -->
-          <div class="mb-3">
-          <div class="row mt-5 justify-content-center">
+
+<div class="text-center">
+  <button type="button" class="btn btn-success" [routerLink]="['/aporte']">Hacer un aporte</button>
+</div>
+
+<div class="container px-2">
+    <div class="mb-3">
+        <div class="row mt-5 justify-content-center">
             <div class="col-md-2 text-center">
                 <div class="card bg-success text-white rounded-3">
                     <div class="card-body">
-                        <i class="fas fa-chart-bar fa-3x"></i> <!-- Ícono -->
-                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.total_eliminado}} Mb</p> <!-- Valor -->
+                        <i class="fas fa-chart-bar fa-3x"></i>
+                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.total_eliminado}} Mb</p>
                         <p class="card-text font-weight-bold">Tus Aportes</p>
                     </div>
                 </div>
@@ -21,18 +27,17 @@
             <div class="col-md-2 text-center">
                 <div class="card bg-success text-white rounded-3">
                     <div class="card-body">
-                        <i class="fas fa-bolt fa-3x"></i> <!-- Ícono -->
-                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.energia_ahorrada}} KWh</p> <!-- Valor -->
+                        <i class="fas fa-bolt fa-3x"></i>
+                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.energia_ahorrada}} KWh</p>
                         <p class="card-text font-weight-bold">Energía Ahorrada</p>
-
                     </div>
                 </div>
             </div>
             <div class="col-md-2 text-center">
                 <div class="card bg-success text-white rounded-3">
                     <div class="card-body">
-                        <i class="fas fa-cloud fa-3x"></i> <!-- Ícono -->
-                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.emisiones_co2}} ppm</p> <!-- Valor -->
+                        <i class="fas fa-cloud fa-3x"></i>
+                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.emisiones_co2}} ppm</p>
                         <p class="card-text font-weight-bold">Co2</p>
                     </div>
                 </div>
@@ -40,8 +45,8 @@
             <div class="col-md-2 text-center">
                 <div class="card bg-success text-white rounded-3">
                     <div class="card-body">
-                        <i class="fas fa-dollar-sign fa-3x"></i> <!-- Ícono -->
-                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.ahorro_dolares}} USD</p> <!-- Valor -->
+                        <i class="fas fa-dollar-sign fa-3x"></i>
+                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.ahorro_dolares}} USD</p>
                         <p class="card-text font-weight-bold">Dinero</p>
                     </div>
                 </div>
@@ -49,52 +54,55 @@
             <div class="col-md-2 text-center">
                 <div class="card bg-success text-white rounded-3">
                     <div class="card-body">
-                        <i class="fas fa-lightbulb fa-3x"></i> <!-- Ícono -->
-                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.encendidos}}BOM</p> <!-- Valor -->
+                        <i class="fas fa-lightbulb fa-3x"></i>
+                        <p class="card-text font-weight-bold" style="font-size: 1.5rem;">{{data.encendidos}} BOM</p>
                         <p class="card-text font-weight-bold">Encendidas</p>
                     </div>
                 </div>
             </div>
         </div>
-      </div>
+    </div>
+</div>
 
-<div class="row mt-12 div1">
-    <div class="col-sm-10 pb-3 prueba">
-        <div class="card">
-            <div class="title">
-                <h3>Registros</h3>
-            </div>
-            <div class="prueba">
-                <cdk-virtual-scroll-viewport style="height: 200px" itemSize=6>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Fecha</th>
-                                <th scope="col">Plataforma</th>
-                                <th scope="col">Archivos Borrados</th>
-                                <th scope="col">Cantidad</th>
-                                <th scope="col">Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let dt of registros">
-                                <th scope="row">{{dt.fecha}}</th>
-                                <td>{{dt.detalle_click01}}</td>
-                                <td>{{dt.c_click01 }}</td>
-                                <td>{{dt.c_click02}} {{dt.detalle_click02}}</td>
-                                <td><i class="fa-pencil"></i>
-                                    <a class="a1" style="cursor: pointer;" (click)="openModal(dt)">
-                                        <mat-icon>edit</mat-icon>
-                                    </a>
-                                    <a class="a1" style="cursor: pointer;" (click)="delete(dt)">
-                                        <mat-icon>delete_outline</mat-icon>
-                                    </a>
-
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </cdk-virtual-scroll-viewport>
+<div class="container px-2">
+    <div class="row mt-12 div1">
+        <div class="col-sm-10 pb-3 prueba">
+            <div class="card">
+                <div class="title">
+                    <h3>Registros</h3>
+                </div>
+                <div class="prueba">
+                    <cdk-virtual-scroll-viewport style="height: 200px" itemSize=6>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Plataforma</th>
+                                    <th scope="col">Archivos Borrados</th>
+                                    <th scope="col">Cantidad</th>
+                                    <th scope="col">Opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let dt of registros">
+                                    <th scope="row">{{dt.fecha}}</th>
+                                    <td>{{dt.detalle_click01}}</td>
+                                    <td>{{dt.c_click01 }}</td>
+                                    <td>{{dt.c_click02}} {{dt.detalle_click02}}</td>
+                                    <td>
+                                        <i class="fa-pencil"></i>
+                                        <a class="a1" style="cursor: pointer;" (click)="openModal(dt)">
+                                            <mat-icon>edit</mat-icon>
+                                        </a>
+                                        <a class="a1" style="cursor: pointer;" (click)="delete(dt)">
+                                            <mat-icon>delete_outline</mat-icon>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </cdk-virtual-scroll-viewport>
+                </div>
             </div>
         </div>
     </div>
