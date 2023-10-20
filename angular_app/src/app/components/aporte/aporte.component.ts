@@ -35,34 +35,45 @@ export class AporteComponent {
 
     console.log("datos!");
     console.log(this.aporte);
-    Swal.fire({
-      icon: 'question',
-      title: 'Desea guardar los datos?',
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: 'Si',
-      denyButtonText: `No`,
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this._aporteService.register(this.aporte).subscribe(
-          response => {
-            Swal.fire('Guardado!', '', 'success').then(
-              () => {
-                setTimeout(() => {
-                  window.location.reload();
-                }, 1000);
+
+    if (this.aporte.c_click01 > 0) {
+      if (this.aporte.c_click02 > 0) {
+        Swal.fire({
+          icon: 'question',
+          title: 'Desea guardar los datos?',
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: 'Si',
+          denyButtonText: `No`,
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this._aporteService.register(this.aporte).subscribe(
+              response => {
+                Swal.fire('Guardado!', '', 'success').then(
+                  () => {
+                    setTimeout(() => {
+                      window.location.reload();
+                    }, 1000);
+                  }
+                )
+                console.log(response)
+              }, error => {
+                Swal.fire('Datos No Guardados', '', 'info')
+                console.log(error)
               }
             )
-            console.log(response)
-          }, error => {
+          } else if (result.isDenied) {
             Swal.fire('Datos No Guardados', '', 'info')
-            console.log(error)
           }
-        )
-      } else if (result.isDenied) {
-        Swal.fire('Datos No Guardados', '', 'info')
+        })
+      } else {
+        Swal.fire('La cantidad de espacio no debe ser igual a 0', '', 'info')
       }
-    })
+    } else {
+      Swal.fire('La cantidad de archivos no debe ser igual a 0', '', 'info')
+    }
+
+
 
   }
 }
