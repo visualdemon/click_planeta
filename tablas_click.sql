@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 03-10-2023 a las 03:46:40
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 22-10-2023 a las 00:29:33
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -89,8 +89,27 @@ CREATE TABLE `click03` (
 --
 
 INSERT INTO `click03` (`id`, `id_user`, `id_click01`, `id_click02`, `c_click01`, `c_click02`, `cg_click02`, `fecha`) VALUES
-(18, 1, 2, 2, 2, 200, 0.200000, '2023-09-02'),
-(19, 1, 1, 1, 1, 1, 1.000000, '2023-10-02');
+(18, 1, 2, 2, 2, 200, 0.200000, '2023-09-02');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `click04`
+--
+
+CREATE TABLE `click04` (
+  `id` int(11) NOT NULL,
+  `detalle` varchar(255) NOT NULL,
+  `total` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `click04`
+--
+
+INSERT INTO `click04` (`id`, `detalle`, `total`) VALUES
+(1, 'INSTITUCIÓN PRUEBA', 0),
+(2, 'INSTITUCIÓN PRUEBA 2', 0);
 
 --
 -- Índices para tablas volcadas
@@ -117,6 +136,12 @@ ALTER TABLE `click03`
   ADD KEY `id_click02` (`id_click02`);
 
 --
+-- Indices de la tabla `click04`
+--
+ALTER TABLE `click04`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -137,6 +162,12 @@ ALTER TABLE `click02`
 --
 ALTER TABLE `click03`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT de la tabla `click04`
+--
+ALTER TABLE `click04`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
