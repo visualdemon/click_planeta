@@ -26,6 +26,7 @@ class RegisterController extends Controller
             'codsex' => 'required',
             'ciudad' => 'required',
             'direccion' => 'required',
+            'id_click04' => 'required',
             'email' => 'required|unique:users',
             'password' => 'required|confirmed'
         ]);
@@ -66,6 +67,7 @@ class RegisterController extends Controller
 
             $user->ciudad = $params_array['ciudad'];
             $user->direccion = $params_array['direccion'];
+            $user->id_click04 = $params_array['id_click04'];
             $user->email = $params_array['email'];
             $user->password = Hash::make($params_array['password']);
             $user->save();

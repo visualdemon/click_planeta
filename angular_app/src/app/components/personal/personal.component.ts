@@ -16,7 +16,7 @@ export class PersonalComponent {
   aporte: Aporte;
   usuario: any;
   constructor(private _aporteService: AporteService, private _authenticateService: AuthenticationService) {
-    this.register = new Register('', '', '', '', '', '', '', '', '', '', '', '', '', '');
+    this.register = new Register('', '', '', '', '', '','', '', '', '', '', '', '', '', '');
     this.usuario = JSON.parse(localStorage.getItem('user') + '');
     this.aporte = new Aporte(0, this.usuario.id, 0, 0, 0, 0);
     this.getdata();

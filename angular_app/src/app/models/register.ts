@@ -12,6 +12,8 @@ export class Register {
 //        public pais: string,
         public ciudad: string,
         public direccion: string,
+        public id_click04: string,
+
         public email: string,
 //        public ocupacion: string,
 //        public empresa: string,

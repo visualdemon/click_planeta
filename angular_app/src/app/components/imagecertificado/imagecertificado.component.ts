@@ -55,7 +55,7 @@ export class ImagecertificadoComponent {
         format: 'a4'
       });
       html2canvas(data).then(canvas => {
-        const imgWidth = 1100;
+        const imgWidth = data.width;
         const imgHeight = canvas.height * imgWidth / canvas.width ;
         const contentDataURL = canvas.toDataURL('image/png');
         doc.addImage(contentDataURL, 'PNG', 35, 20, imgWidth, imgHeight);

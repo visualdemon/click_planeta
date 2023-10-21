@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { Register } from 'src/app/models/register';
+import { Register } from 'src/app/models/register'
+import { AporteService } from 'src/app/services/aporte.service';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [AporteService]
 })
 export class RegisterComponent implements OnInit {
 
@@ -19,9 +21,18 @@ export class RegisterComponent implements OnInit {
     email: null,
     password: null,
   }
-  constructor(private auth: AuthenticationService, private router: Router) {
-    this.register = new Register('', '', '', '', '', '', '', '', '', '', '', '', '', '');
-    
+
+  instituciones: any = [];
+  constructor(private auth: AuthenticationService, private router: Router, private _aporteService: AporteService) {
+    this.register = new Register('', '', '', '', '', '', '', '', '', '','' ,'', '', '', '');
+    this._aporteService.getDataC4({}).subscribe(
+      response => {
+        console.log("response!");
+        console.log(response);
+
+        this.instituciones = response;
+      }
+    )
   }
 
   ngOnInit(): void {

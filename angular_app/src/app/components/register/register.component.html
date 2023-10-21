@@ -156,6 +156,22 @@
               </small>
             </div>
             <div class="input-group mb-3 col-sm-3 pb-3 form-group  ">
+              <select class="form-control" aria-label="Default select example" name="id_click04" #id_click04="ngModel"
+                [(ngModel)]="register.id_click04" required>
+                <option value="" selected>Institución Educativa*</option>
+                <option *ngFor="let dt of instituciones" value={{dt.id}} selected>{{dt.detalle}}</option>
+
+              </select>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-id-card"></span>
+                </div>
+              </div>
+              <small *ngIf="!id_click04.valid && id_click04.touched" class="invalid-feedback d-block">
+                El campo no es valido!
+              </small>
+            </div>
+            <div class="input-group mb-3 col-sm-3 pb-3 form-group  ">
               <input type="email" class="form-control" placeholder="Email*" name="email" #email="ngModel"
                 [(ngModel)]="register.email" maxlength="100" required>
               <div class="input-group-append">
